@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Type Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Vibe Type Test</h1>
+        </header>
+
+        <main>
+            <section class="typing-section">
+                <div class="text-display" id="sampleText">
+                    The quick brown fox jumps over the lazy dog. Start typing to begin the test!
+                </div>
+                
+                <textarea 
+                    class="input-area" 
+                    id="typingInput" 
+                    placeholder="Start typing the text above... (timer starts automatically)"
+                    autofocus
+                ></textarea>
+            </section>
+
+            <section class="stats-section">
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-value" id="timer">0</span>
+                        <span class="stat-label">Seconds</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="wpm">0</span>
+                        <span class="stat-label">WPM</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="accuracy">0</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="controls-section">
+                <button id="resetBtn" class="btn btn-primary">Reset Test</button>
+                <button id="newTextBtn" class="btn btn-secondary">New Text</button>
+            </section>
+
+            <section class="instructions">
+                <div class="instruction-item">
+                    <strong>How to use:</strong> Start typing in the text area above. The timer begins automatically.
+                </div>
+                <div class="instruction-item">
+                    <strong>Colors:</strong> 
+                    <span class="color-sample correct-sample">Green = correct</span>, 
+                    <span class="color-sample incorrect-sample">Red = incorrect</span>, 
+                    <span class="color-sample current-sample">Blue = current position</span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
