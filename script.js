@@ -177,8 +177,81 @@ async function saveToPhoneCloud(wpm, accuracy, duration, totalChars) {
     console.log('Saved to phone cloud:', result);
   } catch (error) {
     console.log('Phone cloud not available, using localStorage');
+    
+    // Phone Cloud Storage Functions
+async function saveToPhoneCloud(typingData) {
+    try {
+        const response = await fetch('http://localhost:8080/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                wpm: typingData.wpm,
+                accuracy: typingData.accuracy,
+                duration: typingData.duration,
+                totalChars: typingData.totalChars,
+                textSample: typingData.textSample,
+                timestamp: new Date().toLocaleString()
+            })
+        });
+        
+        const result = await response.json();
+        console.log('✅ Saved to phone cloud:', result);
+        return true;
+    } catch (error) {
+        console.log('❌ Phone cloud not available');
+        return false;
+    }
+}
+
+async function loadFromPhoneCloud() {
+    try {
+        const response = await fetch('http://localhost:8080/data');
+        const data = await response.json();
+        console.log('📊 Loaded from cloud:', data.length + ' records');
+        return data;
+    } catch (error) {
+        console.log('❌ Could not load from cloud');
+        return [];
+    }
+}
     // You can add localStorage fallback here
     // In your completeTest function, add this:
+    function completeTest(wpm, accuracy) {
+    // Your existing code...
+    
+    // ADD THIS PART:
+    const typingData = {
+        wpm: wpm,
+        accuracy: accuracy,
+        duration: Math.floor((new Date() - startTime) / 1000),
+        totalChars: typingInput.value.length,
+        textSample: sampleText.textContent.substring(0, 50) + '...'
+    };
+    
+    // Save to phone cloud
+    saveToPhoneCloud(typingData);
+    
+    // Rest of your existing code...
+}
 saveToPhoneCloud(wpm, accuracy, duration, totalChars);
+
+async function viewCloudHistory() {
+    const data = await loadFromPhoneCloud();
+    
+    if (data.length === 0) {
+        alert('No data in cloud storage yet!');
+        return;
+    }
+    
+    let message = `📊 Cloud Storage - ${data.length} tests:\n\n`;
+    data.forEach((test, index) => {
+        message += `${index + 1}. ${test.wpm} WPM, ${test.accuracy}% accuracy\n`;
+    });
+    
+    alert(message);
+}
+
   }
 }
