@@ -3,69 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe Type Test</title>
+    <title>My Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <style>
+      /* ================= FOOTER ICONS HOVER EFFECT ================= */
+      footer a i {
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      footer a:hover i {
+        color: #0d6efd; /* Bootstrap primary color */
+        transform: scale(1.2);
+      }
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1>Vibe Type Test</h1>
-        </header>
 
-        <main>
-            <section class="typing-section">
-                <div class="text-display" id="sampleText">
-                    The quick brown fox jumps over the lazy dog. Start typing to begin the test!
-                </div>
-                
-                <textarea 
-                    class="input-area" 
-                    id="typingInput" 
-                    placeholder="Start typing the text above... (timer starts automatically)"
-                    autofocus
-                ></textarea>
-            </section>
+<!-- ========================= NAVIGATION ========================= -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+  <div class="container">
 
-            <section class="stats-section">
-                <div class="stats">
-                    <div class="stat">
-                        <span class="stat-value" id="timer">0</span>
-                        <span class="stat-label">Seconds</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value" id="wpm">0</span>
-                        <span class="stat-label">WPM</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value" id="accuracy">0</span>
-                        <span class="stat-label">Accuracy</span>
-                    </div>
-                </div>
-            </section>
+    <a class="navbar-brand fw-bold" href="#">MyPortfolio</a>
 
-            <section class="controls-section">
-                <button id="resetBtn" class="btn btn-primary">Reset Test</button>
-                <button id="newTextBtn" class="btn btn-secondary">New Text</button>
-                <button onclick="viewCloudHistory()" class="btn btn-tertiary">View Cloud History</button>
-            </section>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-            <section class="instructions">
-                <div class="instruction-item">
-                    <strong>How to use:</strong> Start typing in the text area above. The timer begins automatically.
-                </div>
-                <div class="instruction-item">
-                    <strong>Colors:</strong> 
-                    <span class="color-sample correct-sample">Green = correct</span>, 
-                    <span class="color-sample incorrect-sample">Red = incorrect</span>, 
-                    <span class="color-sample current-sample">Blue = current position</span>
-                </div>
-                <div class="instruction-item">
-                    <strong>Cloud Storage:</strong> Your results are automatically saved to your phone cloud!
-                </div>
-            </section>
-        </main>
+    <div class="collapse navbar-collapse" id="mainMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
     </div>
 
-    <script src="script.js"></script>
+  </div>
+</nav>
+
+<!-- ========================= HERO SECTION ========================= -->
+<section id="home" class="hero d-flex align-items-center text-center">
+  <div class="container ">
+    <h1 class="display-4 fw-bold">Hello, I'm <span class="text-primary">Kefelegn Debela</span></h1>
+    <p class="lead ">Frontend Developer | Web Designer</p>
+    <a href="#projects" class="btn btn-primary btn-lg mt-3">View My Work</a>
+  </div>
+</section>
+
+<!-- ========================= ABOUT SECTION ========================= -->
+<section id="about" class="py-5">
+  <div class="container ">
+    <h1 class="text-center mb-4">About Me</h1>
+
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <p>
+          I am a passionate software, web and networking developer specializing in creating beautiful and responsive
+          websites using modern tools like HTML, CSS, JavaScript, and Bootstrap.
+        </p>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <img src="photo2.jpg" class="img-fluid rounded-circle" alt="Profile Photo" style="max-width: 300px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================= SKILLS SECTION ========================= -->
+<section id="skills" class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Skills</h2>
+
+    <div class="row text-center">
+      <div class="col-md-3 col-6 mb-4"><div class="skill-box p-3 shadow-sm">HTML</div></div>
+      <div class="col-md-3 col-6 mb-4"><div class="skill-box p-3 shadow-sm">CSS</div></div>
+      <div class="col-md-3 col-6 mb-4"><div class="skill-box p-3 shadow-sm">Bootstrap</div></div>
+      <div class="col-md-3 col-6 mb-4"><div class="skill-box p-3 shadow-sm">JavaScript</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= PROJECTS SECTION ========================= -->
+<section id="projects" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Projects</h2>
+
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img src="OIP (1).webp" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="card-title">Project One</h5>
+            <p class="card-text">I develop learning management system website by using object oriented programming when i was 2nd yr 2nd semister .</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img src="OIP.webp" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="card-title">Project Two</h5>
+            <p class="card-text">I am deveoping my first Portfolio website by using html,css and js language.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img src="download.webp" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="card-title">Project Three</h5>
+            <p class="card-text">I am developing wide area and local area network projects by using the concepts of data communication(networking).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= CONTACT SECTION ========================= -->
+<section id="contact" class="bg-dark text-white py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Contact Me</h2>
+
+    <form class="mx-auto" style="max-width: 500px;">
+      <input type="text" class="form-control mb-3" placeholder="Your Name">
+      <input type="email" class="form-control mb-3" placeholder="Email">
+      <textarea class="form-control mb-3" rows="4" placeholder="Message"></textarea>
+      <button class="btn btn-primary w-100">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="text-center py-3 bg-secondary text-white">
+  © 2025 Kefelegn Debela | All Rights Reserved
+  <div class="mt-2">
+    <!-- Social Media Links -->
+    <a href="https://www.facebook.com/kaputo.15" target="_blank" class="text-white mx-2">
+      <i class="bi bi-facebook fs-4"></i>
+    </a>
+    <a href="https://t.me/kaputo_15" target="_blank" class="text-white mx-2">
+      <i class="bi bi-telegram fs-4"></i>
+    </a>
+    <a href="https://www.youtube.com/@Kaptech15/@Kaptech15" target="_blank" class="text-white mx-2">
+      <i class="bi bi-youtube fs-4"></i>
+    </a>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
