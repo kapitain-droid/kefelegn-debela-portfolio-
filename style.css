@@ -93,12 +93,19 @@ body {
 
 .project-img-gallery {
     display: flex;
+    overflow: hidden;
 }
 
 .project-img-gallery img {
+    display: block;
     width: 50%;
     height: 200px;
     object-fit: cover;
+    object-position: center;
+}
+
+.card {
+    overflow: hidden;
 }
 
 .card {
